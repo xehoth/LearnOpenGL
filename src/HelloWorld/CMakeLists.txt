@@ -1,1 +1,2 @@
-add_executable(HelloWorld main.cpp)
+set(SRC_LIST main.cpp)
+add_executable(HelloWorld ${SRC_LIST})
