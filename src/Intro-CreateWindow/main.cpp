@@ -1,5 +1,5 @@
 #include <glad/glad.h>
-#include <GLFW/glfw3.h>
+#include <Window.h>
 
 #include <iostream>
 
@@ -16,18 +16,7 @@ int main() {
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 #endif
 
-    GLFWwindow *window =
-        glfwCreateWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "LearnOpenGL", nullptr, nullptr);
-    if (!window) {
-        std::cerr << "Failed to create GLFW window" << std::endl;
-        return -1;
-    }
-
-    const GLFWvidmode *vidmode = glfwGetVideoMode(glfwGetPrimaryMonitor());
-    glfwSetWindowPos(window, (vidmode->width - WINDOW_WIDTH) / 2,
-                     (vidmode->height - WINDOW_HEIGHT) / 2);
-
-    glfwMakeContextCurrent(window);
+    LearnOpenGL::Window window(WINDOW_WIDTH, WINDOW_HEIGHT, "LearnOpenGL");
 
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
         std::cerr << "Failed to initialize GLAD" << std::endl;
@@ -35,17 +24,18 @@ int main() {
     }
 
     glfwSetFramebufferSizeCallback(
-        window, [](GLFWwindow *window, int width, int height) { glViewport(0, 0, width, height); });
+        window.getHandle(),
+        [](GLFWwindow *window, int width, int height) { glViewport(0, 0, width, height); });
 
-    while (!glfwWindowShouldClose(window)) {
-        if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
-            glfwSetWindowShouldClose(window, true);
+    while (!window.shouldClose()) {
+        if (glfwGetKey(window.getHandle(), GLFW_KEY_ESCAPE) == GLFW_PRESS) {
+            glfwSetWindowShouldClose(window.getHandle(), true);
         }
 
         glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
 
-        glfwSwapBuffers(window);
+        glfwSwapBuffers(window.getHandle());
         glfwPollEvents();
     }
 
