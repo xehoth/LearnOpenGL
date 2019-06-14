@@ -25,8 +25,12 @@ set(GLAD_SRC ${PROJECT_SOURCE_DIR}/3rdParty/glad/src/glad.c)
 include_directories(${PROJECT_SOURCE_DIR}/3rdParty/glad)
 list(APPEND DEPS_SRC ${GLAD_SRC})
 
+include_directories(${PROJECT_SOURCE_DIR}/include)
+
 if (NOT WIN32)
     LIST(APPEND LIBS dl)
 endif()
+
+set(SRC_DIR ${PROJECT_SOURCE_DIR}/src)
 
 add_subdirectory(src)
