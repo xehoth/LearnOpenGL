@@ -3,8 +3,12 @@
 #include <GLFW/glfw3.h>
 #include <iostream>
 #include <cstdlib>
+#include <functional>
 
 namespace LearnOpenGL {
+    constexpr auto DEFAULT_FRAMEBUFFER_SIZE_CALLBACK =
+        [](GLFWwindow *window, int width, int height) { glViewport(0, 0, width, height); };
+
     class Window {
        public:
         Window(int width = 640, int height = 480, const char *title = nullptr,
@@ -35,8 +39,41 @@ namespace LearnOpenGL {
 
         bool shouldClose() const { return glfwWindowShouldClose(window); }
 
+        static void defaultInit() {
+            glfwInit();
+            glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
+            glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
+            glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+
+#ifdef __APPLE__
+            glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+#endif
+        }
+
+        static void loadOpenGL() {
+            if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
+                std::cerr << "Failed to init glad" << std::endl;
+                std::exit(0);
+            }
+        }
+
+        void setFramebufferSizeCallback(void (*func)(GLFWwindow *window, int width, int height) =
+                                            DEFAULT_FRAMEBUFFER_SIZE_CALLBACK) const {
+            glfwSetFramebufferSizeCallback(window, func);
+        }
+
+        bool isPressed(int key) const { return glfwGetKey(window, key) == GLFW_PRESS; }
+
+        void setWindowShouldClose() const { glfwSetWindowShouldClose(window, true); }
+
+        void updateFrame() const {
+            glfwSwapBuffers(window);
+            glfwPollEvents();
+        }
+
        protected:
         GLFWwindow *window;
     };
 }  // namespace LearnOpenGL
+
 #endif
