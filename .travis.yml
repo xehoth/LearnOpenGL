@@ -1,40 +1,25 @@
 language: cpp
-sudo: required
-# common_sources: &1
-#   - ubuntu-toolchain-r-test
+compiler: clang
+
 matrix:
   include:
     - os: linux
       dist: xenial
+      sudo: false
       addons:
         apt:
-          sources: 
-            # - *1
-            - ppa:kubuntu-ppa/backports
+          sources:
           packages:
-            # - g++-7
             - libxrandr-dev
             - libxinerama-dev
             - libxcursor-dev
             - libxi-dev
-            - extra-cmake-modules
-            - libwayland-dev
-            - libxkbcommon-dev
-            - libegl1-mesa-dev
       env:
-        # - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
-
-before_install:
-  # - eval "${MATRIX_EVAL}"
-  - echo $CXX
-  - |
-    if [[ "${TRAVIS_OS_NAME}" == "linux" ]]; then
-        CMAKE_URL="http://www.cmake.org/files/v3.14/cmake-3.14.0-Linux-x86_64.tar.gz"
-        mkdir cmake3 && travis_retry wget --no-check-certificate --quiet -O - ${CMAKE_URL} | tar --strip-components=1 -xz -C cmake3
-        export PATH=$PWD/cmake3/bin:${PATH}
-        echo "Installed CMake in $PWD/cmake3/bin:${PATH}"
-    fi
+        - BUILD_SHARED_LIBS=OFF
+        - CFLAGS=-Werror
 
 script:
   - cmake --version
-  - mkdir build && cd build && cmake .. && cmake --build . --config Release
+  - mkdir build
+  - cd build && cmake ..
+  - cmake --build . --config Release
