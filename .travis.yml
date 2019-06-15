@@ -8,13 +8,19 @@ matrix:
       dist: xenial
       addons:
         apt:
-          sources: *1
+          sources: 
+            - *1
+            - ppa:kubuntu-ppa/backports
           packages:
             - g++-7
             - libxrandr-dev
             - libxinerama-dev
             - libxcursor-dev
             - libxi-dev
+            - extra-cmake-modules
+            - libwayland-dev
+            - libxkbcommon-dev
+            - libegl1-mesa-dev
       env:
         - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
 
