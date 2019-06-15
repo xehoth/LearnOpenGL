@@ -1,12 +1,9 @@
-environment:
-  matrix:
-     - GENERATOR: "Visual Studio 15 2017"
-       CONFIG: Release
-
 matrix:
   fast_finish: true
 
 build_script:
+  - git submodule update --init --recursive
+  - cmake --version
   - mkdir build
   - cd build && cmake ..
   - cmake --build . --config Release
