@@ -28,7 +28,7 @@ int main() {
         [](GLFWwindow *window, int width, int height) { glViewport(0, 0, width, height); });
 
     while (!window.shouldClose()) {
-        if (glfwGetKey(window.getHandle(), GLFW_KEY_ESCAPE) == GLFW_PRESS) {
+        if (glfwGetKey(window.getHandle(), GLFW_KEY_ESCAPE)) {
             glfwSetWindowShouldClose(window.getHandle(), true);
         }
 
