@@ -55,6 +55,7 @@ int main() {
 
     glDeleteVertexArrays(1, &vao);
     glDeleteBuffers(1, &vbo);
+    glfwTerminate();
 }
 
 void processInput(const LearnOpenGL::Window &window) {
