@@ -11,6 +11,10 @@ matrix:
           sources: *1
           packages:
             - g++-7
+            - libxrandr-dev
+            - libxinerama-dev
+            - libxcursor-dev
+            - libxi-dev
       env:
         - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
 
