@@ -11,7 +11,7 @@ cd build && cmake .. && cmake --build .
 - [x] Intro-CreateWindow
 - [x] Intro-Triangle
 - [x] Intro-Shaders
-- [ ] Intro-Textures
+- [x] Intro-Textures
 - [ ] Intro-Transformations
 - [ ] Intro-Croodinate
 - [ ] Intro-Camera
