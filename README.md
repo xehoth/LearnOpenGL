@@ -1,9 +1,12 @@
 # LearnOpenGL
-OpenGL Learning
+OpenGL Learning, following [LearnOpenGL](https://learnopengl.com/).
+Codes are mainly based on the tutorials, but have been changed a lot.
 
 ## Compile
 ``` bash
-cd build && cmake .. && cmake --build .
+git clone --recursive https://github.com/xehoth/LearnOpenGL.git
+cd LearnOpenGL && mkdir build
+cd build && cmake .. && cmake --build . --config Release
 ```
 
 ## To-do List
