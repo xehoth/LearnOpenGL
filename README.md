@@ -1,4 +1,6 @@
 # LearnOpenGL
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/74422d9beb6c46339a94aa28978fbb6c)](https://www.codacy.com/app/xehoth/LearnOpenGL?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=xehoth/LearnOpenGL&amp;utm_campaign=Badge_Grade)
+
 OpenGL Learning, following [LearnOpenGL](https://learnopengl.com/).
 Codes are mainly based on the tutorials, but have been changed a lot.
 
