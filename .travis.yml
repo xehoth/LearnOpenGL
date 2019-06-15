@@ -1,7 +1,7 @@
 language: cpp
 sudo: required
-common_sources: &1
-  - ubuntu-toolchain-r-test
+# common_sources: &1
+#   - ubuntu-toolchain-r-test
 matrix:
   include:
     - os: linux
@@ -9,10 +9,10 @@ matrix:
       addons:
         apt:
           sources: 
-            - *1
+            # - *1
             - ppa:kubuntu-ppa/backports
           packages:
-            - g++-7
+            # - g++-7
             - libxrandr-dev
             - libxinerama-dev
             - libxcursor-dev
@@ -22,10 +22,10 @@ matrix:
             - libxkbcommon-dev
             - libegl1-mesa-dev
       env:
-        - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
+        # - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
 
 before_install:
-  - eval "${MATRIX_EVAL}"
+  # - eval "${MATRIX_EVAL}"
   - echo $CXX
   - |
     if [[ "${TRAVIS_OS_NAME}" == "linux" ]]; then
