@@ -26,6 +26,7 @@ include_directories(${PROJECT_SOURCE_DIR}/3rdParty/glad)
 list(APPEND DEPS_SRC ${GLAD_SRC})
 
 include_directories(${PROJECT_SOURCE_DIR}/include)
+include_directories(${PROJECT_SOURCE_DIR}/3rdParty/stb)
 
 if (NOT WIN32)
     LIST(APPEND LIBS dl)
