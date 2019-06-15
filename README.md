@@ -10,7 +10,7 @@ cd build && cmake .. && cmake --build .
 - [x] HelloWorld
 - [x] Intro-CreateWindow
 - [x] Intro-Triangle
-- [ ] Intro-Shaders
+- [x] Intro-Shaders
 - [ ] Intro-Textures
 - [ ] Intro-Transformations
 - [ ] Intro-Croodinate
