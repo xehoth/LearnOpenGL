@@ -9,7 +9,7 @@ cd build && cmake .. && cmake --build .
 ## To-do List
 - [x] HelloWorld
 - [x] Intro-CreateWindow
-- [ ] Intro-Triangle
+- [x] Intro-Triangle
 - [ ] Intro-Shaders
 - [ ] Intro-Textures
 - [ ] Intro-Transformations
