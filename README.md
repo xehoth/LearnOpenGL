@@ -1,5 +1,5 @@
 # LearnOpenGL
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/74422d9beb6c46339a94aa28978fbb6c)](https://www.codacy.com/app/xehoth/LearnOpenGL?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=xehoth/LearnOpenGL&amp;utm_campaign=Badge_Grade) ![Travis CI](https://www.travis-ci.org/xehoth/LearnOpenGL.svg?branch=master) [![Build status](https://ci.appveyor.com/api/projects/status/tur6g0hwvfv9qjj7?svg=true)](https://ci.appveyor.com/project/xehoth/learnopengl)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/74422d9beb6c46339a94aa28978fbb6c)](https://www.codacy.com/app/xehoth/LearnOpenGL?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=xehoth/LearnOpenGL&amp;utm_campaign=Badge_Grade) [![Build status](https://ci.appveyor.com/api/projects/status/tur6g0hwvfv9qjj7?svg=true)](https://ci.appveyor.com/project/xehoth/learnopengl)
 
 
 OpenGL Learning, following [LearnOpenGL](https://learnopengl.com/).
