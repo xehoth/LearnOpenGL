@@ -44,6 +44,9 @@ int main() {
     while (!window.shouldClose()) {
         processInput(window);
 
+        glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+        glClear(GL_COLOR_BUFFER_BIT);
+
         shader.use();
         shader.set("r", std::abs(std::sinf((float)glfwGetTime())));
 
