@@ -65,6 +65,8 @@ namespace LearnOpenGL {
             glUniform1f(glGetUniformLocation(id, name), val);
         }
 
+        GLuint getUniformLocation(const char *name) const { return glGetUniformLocation(id, name); }
+
        private:
         GLuint id;
 
