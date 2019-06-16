@@ -18,7 +18,7 @@ cd build && cmake .. && cmake --build . --config Release
 - [x] Intro-Triangle
 - [x] Intro-Shaders
 - [x] Intro-Textures
-- [ ] Intro-Transformations
+- [x] Intro-Transformations
 - [ ] Intro-Croodinate
 - [ ] Intro-Camera
 - [ ] Lighting-Color
