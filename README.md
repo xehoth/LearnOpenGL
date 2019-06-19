@@ -19,7 +19,7 @@ cd build && cmake .. && cmake --build . --config Release
 - [x] Intro-Shaders
 - [x] Intro-Textures
 - [x] Intro-Transformations
-- [ ] Intro-Croodinate
+- [x] Intro-Coordinate
 - [ ] Intro-Camera
 - [ ] Lighting-Color
 - [ ] Lighting-BasicLighting
