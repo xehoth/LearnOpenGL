@@ -1,6 +1,8 @@
 #ifndef _LEARN_OPENGL_SHADER_H_
 #define _LEARN_OPENGL_SHADER_H_
 #include <glad/glad.h>
+#include <glm/glm.hpp>
+
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -63,6 +65,10 @@ namespace LearnOpenGL {
 
         void set(const char *name, float val) const {
             glUniform1f(glGetUniformLocation(id, name), val);
+        }
+
+        void set(const char *name, const glm::mat4 mat, GLboolean transpose = GL_FALSE) const {
+            glUniformMatrix4fv(glGetUniformLocation(id, name), 1, transpose, &mat[0][0]);
         }
 
         GLuint getUniformLocation(const char *name) const { return glGetUniformLocation(id, name); }
