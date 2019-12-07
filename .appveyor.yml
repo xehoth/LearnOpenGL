@@ -4,7 +4,11 @@ image:
 build:
   verbosity: minimal
 
+environment:
+  matrix:
+    - PYTHON: "C:\\Python37-x64"
+
 build_script:
   - git submodule update --init --recursive
   - cmake --version
-  - C:\Python37-x64 utils.py build
+  - "%PYTHON%\\python.exe utils.py build"
