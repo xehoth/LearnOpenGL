@@ -24,12 +24,16 @@ python3 utils.py run <target>
 
 **For Windows：** change `python3` to `python`.
 
+## Preview
+
+![Shader](img/Shader.gif)
+
 ## To-do List
 
 - [x] HelloWorld
 - [x] CreateWindow
 - [x] Triangle
-- [ ] Intro-Shaders
+- [x] Shader
 - [ ] Intro-Textures
 - [ ] Intro-Transformations
 - [ ] Intro-Coordinate
