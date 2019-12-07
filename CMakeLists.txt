@@ -6,7 +6,7 @@ else()
     cmake_policy(VERSION 3.14)
 endif()
 
-project(LearnOpenGL VERSION 0.1 DESCRIPTION "Learn OpenGL" LANGUAGES CXX)
+project(LearnOpenGL VERSION 0.1 DESCRIPTION "Learn OpenGL" LANGUAGES C CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)

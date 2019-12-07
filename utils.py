@@ -18,17 +18,17 @@ def clean():
         shutil.rmtree("bin")
 
 
-def build():
+def build(buildType):
     clean()
     os.mkdir("build")
     buildFlag = True
 
     if system == "Windows":
         buildFlag = os.system(
-            'cd build && cmake -G "Visual Studio 16 2019" .. && cmake --build . --config Release')
+            'cd build && cmake -G "Visual Studio 16 2019" .. && cmake --build . --config {}'.format(buildType))
     else:
         buildFlag = os.system(
-            'cd build && cmake .. -DCMAKE_BUILD_TYPE=Release && cmake --build . -j4')
+            'cd build && cmake .. -DCMAKE_BUILD_TYPE={} && cmake --build . -j4'.format(buildType))
 
     if buildFlag:
         print("build failed")
@@ -38,7 +38,7 @@ def build():
 
     def getTargetPath(s):
         if system == "Windows":
-            return buildDir + s + "/Release/" + s + ".exe"
+            return (buildDir + s + "/{}/" + s + ".exe").format(buildType)
         return buildDir + s + "/" + s
 
     for i in targets:
@@ -70,7 +70,10 @@ if __name__ == "__main__":
     if cmd == "--help" or cmd == "-h":
         printHelp()
     elif cmd == "build":
-        build()
+        if len(sys.argv) == 3 and sys.argv[2] == "Debug":
+            build("Debug")
+        else:
+            build("Release")
     elif cmd == "run":
         if len(sys.argv) < 3:
             print("please input a target to run, available targets are:")
