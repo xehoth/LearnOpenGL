@@ -4,6 +4,7 @@
 #include <GLFW/glfw3.h>
 #include <cstdlib>
 #include <iostream>
+#include <algorithm>
 
 namespace LearnOpenGL {
     // default glfw init

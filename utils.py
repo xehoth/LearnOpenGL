@@ -70,10 +70,13 @@ if __name__ == "__main__":
     if cmd == "--help" or cmd == "-h":
         printHelp()
     elif cmd == "build":
+        status = True
         if len(sys.argv) == 3 and sys.argv[2] == "Debug":
-            build("Debug")
+            status &= build("Debug")
         else:
-            build("Release")
+            status &= build("Release")
+        if not status:
+            sys.exit(-1)
     elif cmd == "run":
         if len(sys.argv) < 3:
             print("please input a target to run, available targets are:")
