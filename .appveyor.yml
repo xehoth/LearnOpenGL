@@ -1,12 +1,11 @@
+version: 1.0.{build}
 image:
-  - Visual Studio 2017
-
-matrix:
-  fast_finish: true
+  - Visual Studio 2019
+  - Ubuntu1804
+build:
+  verbosity: minimal
 
 build_script:
   - git submodule update --init --recursive
   - cmake --version
-  - mkdir build
-  - cd build && cmake -G "Visual Studio 15 2017" ..
-  - cmake --build . --config Release
+  - python3 utils.py build
