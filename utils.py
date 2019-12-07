@@ -6,7 +6,7 @@ import shutil
 
 buildDir = "build/src/"
 binDir = "bin/"
-targets = {"HelloWorld", "CreateWindow"}
+targets = ("HelloWorld", "CreateWindow", "Triangle")
 targetDeps = {}
 system = platform.system()
 

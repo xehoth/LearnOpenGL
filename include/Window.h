@@ -4,47 +4,52 @@
 #include <iostream>
 #include <cstdlib>
 #include <functional>
+#include <string>
 
 namespace LearnOpenGL {
-    constexpr auto DEFAULT_FRAMEBUFFER_SIZE_CALLBACK =
-        [](GLFWwindow *window, int width, int height) { glViewport(0, 0, width, height); };
-
     class Window final {
        public:
-        Window(int width, int height, const char *title, bool centered);
+        Window(int width, int height, const std::string &title, bool centered);
 
         GLFWwindow *getHandle() { return window; }
         GLFWwindow *getHandle() const { return window; }
 
         bool isWindowShouldClose() const { return glfwWindowShouldClose(window); }
 
-        void setFramebufferSizeCallback(
-            void (*func)(GLFWwindow *, int, int) = DEFAULT_FRAMEBUFFER_SIZE_CALLBACK) const {
-            glfwSetFramebufferSizeCallback(window, func);
-        }
-
         bool isPressed(int key) const { return glfwGetKey(window, key) == GLFW_PRESS; }
 
         void close() const { glfwSetWindowShouldClose(window, true); }
 
+        const std::string &getTitle() const { return title; }
+
+        void setTitle(const std::string &title) {
+            this->title = title;
+            glfwSetWindowTitle(window, title.c_str());
+        }
+
+        inline void showFPS() const;
+
         void updateFrame() const {
+            showFPS();
             glfwSwapBuffers(window);
             glfwPollEvents();
         }
 
        private:
         GLFWwindow *window;
+        std::string title;
     };
 }  // namespace LearnOpenGL
 
 // implement
 
 namespace LearnOpenGL {
-    Window::Window(int width, int height, const char *title = "", bool centered = true) {
+    Window::Window(int width, int height, const std::string &title = "", bool centered = true)
+        : title(title) {
         defaultInit();
         glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
         glfwWindowHint(GLFW_VISIBLE, GL_FALSE);
-        window = glfwCreateWindow(width, height, title, nullptr, nullptr);
+        window = glfwCreateWindow(width, height, title.c_str(), nullptr, nullptr);
 
         if (!window) {
             std::cerr << "Failed to create glfw window" << std::endl;
@@ -59,6 +64,21 @@ namespace LearnOpenGL {
         glfwMakeContextCurrent(window);
         glfwShowWindow(window);
         loadOpenGL();
+    }
+
+    inline void Window::showFPS() const {
+        // Measure speed
+        static double lastTime;
+        static int frames;
+        double currentTime = glfwGetTime();
+        double delta = currentTime - lastTime;
+        frames++;
+        if (delta >= 1.0) {  // If last count was more than 1 sec ago
+            double fps = frames / delta;
+            glfwSetWindowTitle(window, (title + " [" + std::to_string(fps) + " FPS]").c_str());
+            frames = 0;
+            lastTime = currentTime;
+        }
     }
 
 }  // namespace LearnOpenGL

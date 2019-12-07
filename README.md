@@ -27,12 +27,12 @@ python3 utils.py run <target>
 ## To-do List
 
 - [x] HelloWorld
-- [x] Intro-CreateWindow
-- [x] Intro-Triangle
-- [x] Intro-Shaders
-- [x] Intro-Textures
-- [x] Intro-Transformations
-- [x] Intro-Coordinate
+- [x] CreateWindow
+- [x] Triangle
+- [ ] Intro-Shaders
+- [ ] Intro-Textures
+- [ ] Intro-Transformations
+- [ ] Intro-Coordinate
 - [ ] Intro-Camera
 - [ ] Lighting-Color
 - [ ] Lighting-BasicLighting
