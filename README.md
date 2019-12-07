@@ -34,7 +34,7 @@ python3 utils.py run <target>
 - [x] CreateWindow
 - [x] Triangle
 - [x] Shader
-- [ ] Intro-Textures
+- [x] Texture
 - [ ] Intro-Transformations
 - [ ] Intro-Coordinate
 - [ ] Intro-Camera

@@ -6,7 +6,7 @@ import shutil
 
 buildDir = "build/src/"
 binDir = "bin/"
-targets = ("HelloWorld", "CreateWindow", "Triangle", "Shader")
+targets = ("HelloWorld", "CreateWindow", "Triangle", "Shader", "Texture")
 targetDeps = {}
 system = platform.system()
 
@@ -28,7 +28,7 @@ def build(buildType):
             'cd build && cmake -G "Visual Studio 16 2019" .. && cmake --build . --config {}'.format(buildType))
     else:
         buildFlag = os.system(
-            'cd build && cmake .. -DCMAKE_BUILD_TYPE={} && cmake --build . -j4'.format(buildType))
+            'cd build && cmake .. -DCMAKE_BUILD_TYPE={} && cmake --build . -j8'.format(buildType))
 
     if buildFlag:
         print("build failed")
