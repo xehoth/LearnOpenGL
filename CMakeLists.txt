@@ -22,7 +22,7 @@ list(APPEND LIBS glfw ${GLFW_LIBRARIES})
 
 # config glad
 set(GLAD_SRC ${PROJECT_SOURCE_DIR}/3rdParty/glad/src/glad.c)
-include_directories(${PROJECT_SOURCE_DIR}/3rdParty/glad)
+include_directories(${PROJECT_SOURCE_DIR}/3rdParty/glad/include)
 list(APPEND DEPS_SRC ${GLAD_SRC})
 
 include_directories(${PROJECT_SOURCE_DIR}/include)
