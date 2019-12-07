@@ -7,4 +7,4 @@ build:
 build_script:
   - git submodule update --init --recursive
   - cmake --version
-  - python utils.py build
+  - "C:\Python37-x64" utils.py build
