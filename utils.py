@@ -7,7 +7,7 @@ import shutil
 buildDir = "build/src/"
 binDir = "bin/"
 targets = ("HelloWorld", "CreateWindow", "Triangle",
-           "Shader", "Texture", "Transformation")
+           "Shader", "Texture", "Transformation", "Coordinate")
 targetDeps = {}
 system = platform.system()
 
@@ -54,6 +54,8 @@ def build(buildType):
 
 def printHelp():
     print("usage: [build] [run <target>] [clean] [--help]")
+    print("available targets are:")
+    print(targets)
 
 
 def runTarget(target):
