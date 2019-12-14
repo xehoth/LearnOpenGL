@@ -28,6 +28,10 @@ python3 utils.py run <target>
 
 ![Shader](img/Shader.gif)
 
+![Transformation](img/Transformation.gif)
+
+![Coordinate](img/Coordinate.gif)
+
 ## To-do List
 
 - [x] HelloWorld
@@ -36,7 +40,7 @@ python3 utils.py run <target>
 - [x] Shader
 - [x] Texture
 - [x] Transformation
-- [ ] Intro-Coordinate
+- [x] Coordinate
 - [ ] Intro-Camera
 - [ ] Lighting-Color
 - [ ] Lighting-BasicLighting
